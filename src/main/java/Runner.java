@@ -16,7 +16,8 @@ public class Runner {
         Properties properties = PropertiesAccessHelper.read(propertiesPath);
 
         String comicName = "鬼滅之刃";
-        BaseCrawler kuku鬼滅之刃 = new KukuCrawler("https://comic.kukudm.com/comiclist/2126/");
+        String baseKukuUrl = "http://comic.ikkdm.com";
+        BaseCrawler kuku鬼滅之刃 = new KukuCrawler(baseKukuUrl +"/comiclist/2126/");
         BaseCrawler.Result result = kuku鬼滅之刃.getLastedEp();
         boolean isLastedEp = isLastedEp(properties.getProperty(comicName), result);
         System.out.println(comicName + " is lasted:" + isLastedEp);
@@ -26,7 +27,7 @@ public class Runner {
         }
 
         comicName = "海賊王";
-        BaseCrawler kuku海賊王 = new KukuCrawler("https://comic.kukudm.com/comiclist/4/");
+        BaseCrawler kuku海賊王 = new KukuCrawler(baseKukuUrl + "/comiclist/4/");
         result = kuku海賊王.getLastedEp();
         isLastedEp = isLastedEp(properties.getProperty(comicName), result);
         System.out.println(comicName + "is lasted:" + isLastedEp);
